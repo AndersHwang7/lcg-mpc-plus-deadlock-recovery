@@ -186,6 +186,14 @@ python scripts/visualize_compare.py --config configs/visual_compare.yaml
 
 The output HTML shows moving circles/squares as robots, faint route-attempt lines, raw versus safety-supervised one-step decisions, and live values such as completion, waiting, fixed conflicts, retreat actions, game profiles, and MPC checks.
 
+Curated visualization artifacts are included under `visualizations/`:
+
+- `visualizations/interactive_4way_html/`: five self-contained four-way HTML Canvas comparisons.
+- `visualizations/paper_figures_1000seed/`: paper-ready PNG/PDF figures with bootstrap confidence intervals.
+- `visualizations/captions/`: draft manuscript captions.
+
+See `docs/VISUALIZATION_ARTIFACTS.md` for the English guide.
+
 
 
 ---
