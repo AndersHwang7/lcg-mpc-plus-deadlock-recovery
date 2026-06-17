@@ -1,8 +1,7 @@
-# MR Deadlock Thesis Simulator
-
+# LCG-MPC+: Reproducible Multi-Robot Deadlock-Recovery Simulator
 A reproducible Python research platform for the doctoral/Sci-level topic:
 
-**Localized Conflict-Game Model Predictive Control for Deadlock-Free Large-Scale Multi-Robot Traffic**
+**LCG-MPC+ multi-robot deadlock-recovery simulator and 1000-seed paired evaluation package with baseline comparisons, bootstrap-CI figures, statistical tables, and HTML visualizations.**
 
 This repository provides a complete experimental scaffold, not a one-file demo. It includes:
 
