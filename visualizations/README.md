@@ -4,11 +4,20 @@
 
 This directory contains curated visualization artifacts for the LCG-MPC+ multi-robot deadlock-recovery study.
 
+## Sample Images
+
+These screenshots were rendered from the actual interactive HTML viewers at mid-simulation frames.
+
+| Ring crossing | Bottleneck swap | Warehouse aisles |
+| --- | --- | --- |
+| ![Ring crossing 4-way sample](sample_images/sample_ring_cross_4way.png) | ![Bottleneck swap 4-way sample](sample_images/sample_bottleneck_swap_4way.png) | ![Warehouse aisles 4-way sample](sample_images/sample_warehouse_aisles_4way.png) |
+
 ## Directory Layout
 
 - `interactive_4way_html/`: self-contained HTML Canvas animations comparing four planners on the same scenario.
 - `paper_figures_1000seed/`: PNG and PDF figures generated from the completed 1000-seed paired experiment.
 - `captions/`: draft figure and table captions for manuscript integration.
+- `sample_images/`: static screenshots captured from the interactive HTML visualizations for GitHub previews.
 
 ## Interactive 4-Way HTML Animations
 
@@ -32,6 +41,7 @@ Controls:
 - Space: play or pause
 - Left/right arrows: move one simulation step
 - Checkboxes: toggle path, intent, and tail overlays
+- Optional URL query: append `?frame=50` to open a specific starting frame
 
 The animations are intended as qualitative behavior visualizations, not as replacements for the statistical 1000-seed results.
 

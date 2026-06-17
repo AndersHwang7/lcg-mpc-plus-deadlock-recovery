@@ -18,6 +18,14 @@ This repository provides a complete experimental scaffold, not a one-file demo. 
 
 The implementation is intentionally lightweight so that 100--1000 robot experiments can be run without ROS2/Gazebo.
 
+## Visualization Preview
+
+The repository includes self-contained HTML Canvas visualizations that compare WHCA best preregistered, IMPC-DR-lite, MPC-CBF-lite, and LCG-MPC+ on identical scenarios.
+
+![4-way bottleneck swap visualization sample](visualizations/sample_images/sample_bottleneck_swap_4way.png)
+
+More samples and the interactive HTML files are available in `visualizations/`.
+
 ---
 
 ## 1. Recommended environment

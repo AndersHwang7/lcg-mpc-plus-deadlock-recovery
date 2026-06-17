@@ -430,7 +430,8 @@ slider.addEventListener('input', () => drawFrame(Number(slider.value)));
 speedSel.addEventListener('change', () => { if (timer) { clearInterval(timer); timer=null; play(); } });
 for (const el of [showPaths, showTails, showIntent]) el.addEventListener('change', () => drawFrame(frameIndex));
 window.addEventListener('keydown', ev => { if (ev.key === ' ') { ev.preventDefault(); play(); } if (ev.key === 'ArrowRight') drawFrame(frameIndex+1); if (ev.key === 'ArrowLeft') drawFrame(frameIndex-1); });
-drawFrame(0);
+const initialFrame = Number(new URLSearchParams(window.location.search).get('frame') || 0);
+drawFrame(Number.isFinite(initialFrame) ? initialFrame : 0);
 </script>
 </body>
 </html>
