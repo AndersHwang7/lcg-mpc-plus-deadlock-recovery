@@ -1,0 +1,48 @@
+# 파일명: stress_deadlock.yaml
+# 목적 및 역할:
+# 교착이 잘 발생하는 상황을 의도적으로 확인하는 stress 설정이다.
+# 작성자: RODIX Anders Hwang
+
+experiment:
+  name: stress_deadlock
+  output_dir: results/raw
+  seeds: [0, 1, 2]
+  algorithms: [pibt, whca, orca_lite, dmpc_lite, mpc_cbf_lite, impc_dr_lite, clrr, clrr_game, clrr_hmpc, lcg_mpc_plus]
+
+scenario:
+  map_type: ring
+  width: 50
+  height: 50
+  obstacle_density: 0.02
+  n_robots: 80
+  task_mode: one_shot
+  max_steps: 600
+  start_goal_mode: cross_traffic
+
+planner:
+  activation_mode: candidate
+  clrr_nominal: whca
+  horizon: 8
+  whca_window: 8
+  deadlock_threshold: 6
+  conflict_radius: 1
+  communication_radius: 8
+  retreat_radius: 6
+  max_game_agents: 5
+  game_w_fairness: 1.20
+  game_max_profiles: 512
+  enable_mpc: true
+  enable_continuous_dynamics: true
+  footprint_radius: 0.35
+  safety_margin: 0.05
+  sensing_sigma: 0.03
+  uncertainty_k: 2.0
+  max_speed: 1.25
+  max_accel: 1.50
+  enforce_acceleration_bound: true
+  mpc_horizon: 6
+  mpc_go_ratio: 0.65
+
+runtime:
+  verbose: false
+  save_step_log: true

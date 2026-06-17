@@ -1,0 +1,48 @@
+# 파일명: quick_100.yaml
+# 목적 및 역할:
+# 기본 동작 확인을 위한 작은 규모 단일 실험 설정이다.
+# 작성자: RODIX Anders Hwang
+
+experiment:
+  name: quick_100
+  output_dir: results/raw
+  seeds: [0, 1, 2]
+  algorithms: [astar_wait, prioritized, pibt, whca, orca_lite, dmpc_lite, mpc_cbf_lite, impc_dr_lite, clrr, clrr_game, clrr_hmpc, lcg_mpc_plus]
+
+scenario:
+  map_type: intersection
+  width: 60
+  height: 60
+  obstacle_density: 0.05
+  n_robots: 100
+  task_mode: one_shot
+  max_steps: 500
+  start_goal_mode: cross_traffic
+
+planner:
+  horizon: 8
+  whca_window: 8
+  activation_mode: candidate
+  clrr_nominal: whca
+  deadlock_threshold: 6
+  conflict_radius: 1
+  communication_radius: 6
+  retreat_radius: 4
+  max_game_agents: 5
+  game_w_fairness: 1.20
+  game_max_profiles: 512
+  enable_mpc: true
+  enable_continuous_dynamics: true
+  footprint_radius: 0.35
+  safety_margin: 0.05
+  sensing_sigma: 0.03
+  uncertainty_k: 2.0
+  max_speed: 1.25
+  max_accel: 1.50
+  enforce_acceleration_bound: true
+  mpc_horizon: 6
+  mpc_go_ratio: 0.65
+
+runtime:
+  verbose: true
+  save_step_log: false

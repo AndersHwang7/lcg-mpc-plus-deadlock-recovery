@@ -1,0 +1,20 @@
+{
+  "pytest": "7 passed",
+  "compileall": "passed",
+  "exact_potential_check": true,
+  "smoke_experiment": {
+    "config": "configs/quick_100.yaml",
+    "algorithm": "clrr_hmpc",
+    "n_robots_override": 30,
+    "max_steps_override": 80,
+    "result": "completed successfully; collision_count=0 in validation run"
+  },
+  "main_corrections": [
+    "throughput_per_step separated from wall-clock throughput",
+    "persistent SCC no-progress detector strengthened",
+    "exact-potential game verification added",
+    "completed robots excluded from active one-shot blockers",
+    "local MPC made non-destructive for already feasible game profiles",
+    "activation_mode and clrr_nominal configuration added"
+  ]
+}

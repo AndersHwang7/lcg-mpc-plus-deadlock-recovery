@@ -1,0 +1,58 @@
+# 파일명: final_validation_3seed_quick.yaml
+# 목적 및 역할:
+# 배포 패키지 내부에 포함할 빠른 paired validation 결과를 만들기 위한 경량 설정이다.
+# 최종 본문 정량 claim은 1000-seed 설정으로 재실행해야 한다.
+
+experiment:
+  name: final_validation_3seed_quick
+  output_dir: results/final_validation_quick/raw
+  seeds: [0, 1, 2]
+  algorithms: [whca, impc_dr_lite, lcg_mpc_plus]
+  n_jobs: 1
+
+sweep:
+  n_robots: [56]
+  map_type: [ring, bottleneck, intersection]
+  density: [0.05]
+
+scenario:
+  width: 70
+  height: 70
+  obstacle_density: 0.05
+  n_robots: 56
+  task_mode: one_shot
+  max_steps: 160
+  start_goal_mode: cross_traffic
+
+planner:
+  horizon: 8
+  whca_window: 8
+  activation_mode: candidate
+  clrr_nominal: whca
+  deadlock_threshold: 6
+  conflict_radius: 1
+  communication_radius: 8
+  retreat_radius: 6
+  repair_astar_expansions: 2000
+  max_game_agents: 5
+  game_max_profiles: 512
+  game_w_delay: 1.0
+  game_w_retreat: 1.8
+  game_w_fairness: 1.35
+  game_w_progress: 1.1
+  enable_mpc: true
+  mpc_horizon: 6
+  mpc_go_ratio: 0.70
+  enable_continuous_dynamics: true
+  footprint_radius: 0.35
+  safety_margin: 0.05
+  sensing_sigma: 0.03
+  uncertainty_k: 2.0
+  max_speed: 1.25
+  max_accel: 1.50
+  enforce_acceleration_bound: true
+
+runtime:
+  verbose: false
+  save_step_log: false
+  resume_existing: true

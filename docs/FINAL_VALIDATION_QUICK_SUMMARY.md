@@ -1,0 +1,15 @@
+# Final validation quick summary
+
+This is a compact 3-seed paired validation for pipeline verification, not the final 1000-seed manuscript claim.
+
+| algorithm    | map_type     |   n_robots |   success_rate_mean |   mean_wait_time_mean |   throughput_per_step_mean |   fairness_jain_wait_mean |   footprint_conflicts_mean |   swept_conflicts_mean |   continuous_min_clearance_mean |   avg_step_runtime_ms_mean |
+|:-------------|:-------------|-----------:|--------------------:|----------------------:|---------------------------:|--------------------------:|---------------------------:|-----------------------:|--------------------------------:|---------------------------:|
+| impc_dr_lite | bottleneck   |         56 |           0.654762  |               38.6369 |                 0.229167   |                  0.348018 |                   0        |               0        |                            0.08 |                    8.2118  |
+| lcg_mpc_plus | bottleneck   |         56 |           0.660714  |               27.6071 |                 0.23125    |                  0.323081 |                   0        |               0.666667 |                            0.08 |                    8.59047 |
+| whca         | bottleneck   |         56 |           0.279762  |               88.0655 |                 0.0979167  |                  0.705346 |                1443.67     |            1420        |                            0.08 |                    7.13357 |
+| impc_dr_lite | intersection |         56 |           0.946429  |               12.9048 |                 0.522653   |                  0.56043  |                   0.666667 |               0        |                            0.08 |                    4.70095 |
+| lcg_mpc_plus | intersection |         56 |           1         |                7.2381 |                 0.613459   |                  0.700079 |                   1.33333  |               0.666667 |                            0.08 |                    5.60284 |
+| whca         | intersection |         56 |           0.0357143 |              132.792  |                 0.0125     |                  0.96049  |                3046        |            2963.67     |                            0.08 |                    6.53978 |
+| impc_dr_lite | ring         |         56 |           0.934524  |               16.7619 |                 0.327083   |                  0.216082 |                   1        |               0        |                            0.08 |                    3.69131 |
+| lcg_mpc_plus | ring         |         56 |           0.922619  |               18.7143 |                 0.322917   |                  0.252261 |                   7        |               5.33333  |                            0.08 |                    4.3756  |
+| whca         | ring         |         56 |           0.0238095 |              136.327  |                 0.00833333 |                  0.971943 |                2985.67     |            2932.67     |                            0.08 |                    6.52866 |

@@ -1,0 +1,58 @@
+# 파일명: visual_5cases.yaml
+# 목적 및 역할:
+# 다섯 개의 서로 다른 경로/지도 조건에서 WHCA와 LCG-MPC+의 분할 화면 동작 HTML을 생성한다.
+
+experiment:
+  name: visual_5cases
+  output_dir: results/visualizations
+  algorithms: [whca, lcg_mpc_plus]
+  seeds: [0, 7, 13, 21, 42]
+
+cases:
+  - name: ring_cross_56robots_seed0
+    seed: 0
+    scenario: {map_type: ring, width: 58, height: 58, obstacle_density: 0.05, n_robots: 56, max_steps: 150, start_goal_mode: cross_traffic}
+  - name: intersection_cross_72robots_seed7
+    seed: 7
+    scenario: {map_type: intersection, width: 64, height: 64, obstacle_density: 0.05, n_robots: 72, max_steps: 150, start_goal_mode: cross_traffic}
+  - name: bottleneck_swap_80robots_seed13
+    seed: 13
+    scenario: {map_type: bottleneck, width: 70, height: 56, obstacle_density: 0.04, n_robots: 80, max_steps: 170, start_goal_mode: cross_traffic}
+  - name: warehouse_aisles_90robots_seed21
+    seed: 21
+    scenario: {map_type: warehouse, width: 72, height: 60, obstacle_density: 0.06, n_robots: 90, max_steps: 170, start_goal_mode: cross_traffic}
+  - name: corridor_opposing_60robots_seed42
+    seed: 42
+    scenario: {map_type: corridor, width: 76, height: 42, obstacle_density: 0.04, n_robots: 60, max_steps: 160, start_goal_mode: cross_traffic}
+
+planner:
+  horizon: 8
+  whca_window: 8
+  activation_mode: candidate
+  clrr_nominal: whca
+  deadlock_threshold: 6
+  conflict_radius: 1
+  communication_radius: 8
+  retreat_radius: 6
+  repair_astar_expansions: 2000
+  max_game_agents: 5
+  game_max_profiles: 512
+  game_w_delay: 1.0
+  game_w_retreat: 1.8
+  game_w_fairness: 1.35
+  game_w_progress: 1.1
+  enable_mpc: true
+  mpc_horizon: 6
+  mpc_go_ratio: 0.70
+  enable_continuous_dynamics: true
+  footprint_radius: 0.35
+  safety_margin: 0.05
+  sensing_sigma: 0.03
+  uncertainty_k: 2.0
+  max_speed: 1.25
+  max_accel: 1.50
+  enforce_acceleration_bound: true
+
+runtime:
+  verbose: false
+  save_step_log: false

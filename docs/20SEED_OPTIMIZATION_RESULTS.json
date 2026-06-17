@@ -1,0 +1,7 @@
+{
+  "validation_scope": "20 seeds for intersection_100 and ring_80",
+  "main_finding": "ring_80 stress case supports the proposed CLRR-HMPC direction; plain intersection is not sufficient as the only evidence",
+  "collision_count_proposed": 0,
+  "mpc_activation": "confirmed in clrr_hmpc",
+  "paper_use_judgement": "usable as pilot evidence, but final paper needs larger scale sweep"
+}

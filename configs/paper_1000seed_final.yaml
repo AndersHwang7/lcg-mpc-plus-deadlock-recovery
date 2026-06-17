@@ -1,0 +1,62 @@
+# 파일명: paper_1000seed_final.yaml
+# 목적 및 역할:
+# 최종 목표인 1000 seed 반복 검증을 위한 설정이다.
+# 매우 큰 실험이므로 --jobs 병렬 실행과 --resume 재시작을 권장한다.
+# 작성자: RODIX Anders Hwang
+
+experiment:
+  name: paper_1000seed_final
+  output_dir: results/raw
+  seed_range: {start: 0, stop: 999}
+  algorithms: [whca, orca_lite, dmpc_lite, mpc_cbf_lite, impc_dr_lite, clrr_hmpc, lcg_mpc_plus]
+  n_jobs: 1
+
+sweep:
+  n_robots: [100, 250, 500, 750, 1000]
+  map_type: [intersection, corridor, warehouse, bottleneck, ring, random]
+  density: [0.05, 0.10, 0.20]
+
+scenario:
+  width: 150
+  height: 150
+  obstacle_density: 0.08
+  n_robots: 100
+  task_mode: one_shot
+  max_steps: 3000
+  start_goal_mode: cross_traffic
+
+planner:
+  horizon: 12
+  whca_window: 12
+  activation_mode: candidate
+  clrr_nominal: whca
+  deadlock_threshold: 8
+  conflict_radius: 1
+  communication_radius: 8
+  retreat_radius: 8
+  repair_astar_expansions: 3000
+  max_game_agents: 5
+  game_max_profiles: 512
+  game_w_delay: 1.0
+  game_w_retreat: 1.8
+  game_w_fairness: 1.35
+  game_w_progress: 1.1
+  enable_mpc: true
+  enable_continuous_dynamics: true
+  footprint_radius: 0.35
+  safety_margin: 0.05
+  sensing_sigma: 0.03
+  uncertainty_k: 2.0
+  max_speed: 1.25
+  max_accel: 1.50
+  enforce_acceleration_bound: true
+  mpc_horizon: 8
+  mpc_go_ratio: 0.70
+  mpc_w_progress: 1.2
+  mpc_w_wait: 0.25
+  mpc_w_accel: 0.03
+
+runtime:
+  verbose: false
+  save_step_log: false
+  resume_existing: true

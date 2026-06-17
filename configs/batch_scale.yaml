@@ -1,0 +1,44 @@
+# 파일명: batch_scale.yaml
+# 목적 및 역할:
+# 여러 로봇 수와 알고리즘을 비교하는 중간 규모 batch 설정이다.
+# 작성자: RODIX Anders Hwang
+
+experiment:
+  name: scale_batch
+  output_dir: results/raw
+  seeds: [0, 1, 2, 3, 4]
+  algorithms: [prioritized, pibt, whca, clrr, clrr_game, clrr_hmpc]
+
+sweep:
+  n_robots: [100, 250, 500, 750, 1000]
+  map_type: [intersection, corridor, warehouse, bottleneck, random]
+  density: [0.10, 0.20, 0.30]
+
+scenario:
+  width: 120
+  height: 120
+  obstacle_density: 0.08
+  n_robots: 100
+  task_mode: one_shot
+  max_steps: 1500
+  start_goal_mode: cross_traffic
+
+planner:
+  horizon: 8
+  whca_window: 8
+  activation_mode: candidate
+  clrr_nominal: whca
+  deadlock_threshold: 8
+  conflict_radius: 1
+  communication_radius: 8
+  retreat_radius: 5
+  max_game_agents: 5
+  game_w_fairness: 1.20
+  game_max_profiles: 512
+  enable_mpc: true
+  mpc_horizon: 6
+  mpc_go_ratio: 0.65
+
+runtime:
+  verbose: false
+  save_step_log: false

@@ -1,0 +1,43 @@
+# 파일명: paper_scale.yaml
+# 목적 및 역할:
+# 논문 표와 그림 생성을 위한 대규모 반복 실험 설정이다.
+# 작성자: RODIX Anders Hwang
+
+experiment:
+  name: paper_scale
+  output_dir: results/raw
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  algorithms: [astar_wait, prioritized, pibt, whca, clrr, clrr_game, clrr_hmpc]
+
+sweep:
+  n_robots: [100, 250, 500, 750, 1000]
+  map_type: [intersection, corridor, warehouse, bottleneck, ring, random]
+  density: [0.05, 0.10, 0.20, 0.30]
+
+scenario:
+  width: 150
+  height: 150
+  obstacle_density: 0.08
+  n_robots: 100
+  task_mode: one_shot
+  max_steps: 3000
+  start_goal_mode: cross_traffic
+
+planner:
+  horizon: 12
+  whca_window: 12
+  activation_mode: candidate
+  clrr_nominal: whca
+  deadlock_threshold: 10
+  conflict_radius: 1
+  communication_radius: 8
+  retreat_radius: 8
+  max_game_agents: 5
+  game_w_fairness: 1.20
+  game_max_profiles: 512
+  enable_mpc: true
+  mpc_horizon: 8
+
+runtime:
+  verbose: false
+  save_step_log: false

@@ -1,0 +1,82 @@
+# Objective 1000-seed final protocol after round2 precheck.
+# Manuscript-core claims should use only the paired 56/100/250 robot sweep below.
+# 500/1000 robot cases are intentionally excluded from this full 1000-seed sweep;
+# run them as a reduced-seed smoke/scalability supplement after the core finishes.
+experiment:
+  name: paper_1000seed_objective_final_v2
+  output_dir: results/paper_1000seed_objective_final_v2/raw
+  seed_range: {start: 0, stop: 999}
+  algorithms:
+    - whca_default
+    - whca_strong
+    - pibt
+    - prioritized
+    - impc_dr_lite
+    - mpc_cbf_lite
+    - lcg_mpc_plus_full
+  n_jobs: 1
+
+sweep:
+  n_robots: [56, 100, 250]
+  map_type: [ring, bottleneck, corridor, intersection, warehouse, random]
+  density: [0.05]
+
+scenario:
+  width: 120
+  height: 120
+  obstacle_density: 0.05
+  n_robots: 100
+  task_mode: one_shot
+  max_steps: 160
+  start_goal_mode: cross_traffic
+
+planner:
+  horizon: 8
+  whca_window: 8
+  whca_strong_window: 32
+  activation_mode: candidate
+  clrr_nominal: whca
+  deadlock_threshold: 6
+  conflict_radius: 1
+  communication_radius: 8
+  retreat_radius: 6
+  repair_astar_expansions: 2000
+  max_game_agents: 5
+  game_max_profiles: 512
+  planner_step_timeout_ms: 250.0
+  game_w_delay: 1.0
+  game_w_retreat: 1.8
+  game_w_fairness: 1.35
+  game_w_progress: 1.1
+  enable_mpc: true
+  mpc_horizon: 6
+  mpc_go_ratio: 0.70
+  mpc_w_progress: 1.2
+  mpc_w_wait: 0.25
+  mpc_w_accel: 0.03
+  enable_continuous_dynamics: true
+  footprint_radius: 0.35
+  safety_margin: 0.05
+  sensing_sigma: 0.03
+  uncertainty_k: 2.0
+  max_speed: 1.25
+  max_accel: 1.50
+  enforce_acceleration_bound: true
+
+runtime:
+  verbose: false
+  save_step_log: false
+  resume_existing: true
+  log_raw_final_conflicts: true
+  log_supervisor_interventions: true
+  log_runtime_scaling: true
+  log_runtime_p95_p99_max: true
+  log_timeout_count: true
+  log_exact_partitioned_greedy_fallback: true
+
+# Optional large-scale smoke protocol, not part of the 1000-seed manuscript core:
+# - seed_range: {start: 0, stop: 99}
+# - n_robots: [500, 1000]
+# - map_type: [ring, bottleneck, warehouse]
+# - density: [0.05]
+# Use only for scalability boundary discussion, not for the primary paired claim.

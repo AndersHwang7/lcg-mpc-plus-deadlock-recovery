@@ -1,0 +1,42 @@
+# Inha University & RODIX Inc, Anders Hwang
+
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.egg-info/
+src/*.egg-info/
+
+# Local OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Generated experiment outputs
+results/**/raw/
+results/**/state/
+results/**/progress/
+results/**/partial/
+results/**/precheck/
+results/**/*.csv
+results/**/*.png
+results/**/*.pdf
+results/**/*.html
+
+# Keep curated documentation outputs if explicitly added with git add -f.
+!results/paper_1000seed_core_resumable/final/FINAL_1000SEED_CORE_REPORT.md
+!results/paper_1000seed_core_resumable/final/CLAIM_BOUNDARY_AFTER_1000SEED.md
+!results/paper_1000seed_core_resumable/final/FIGURE_CAPTIONS.md
+
+# Archive artifacts: upload large packages as GitHub Release assets.
+*.zip
+!paper_ready_1000seed_final.zip
