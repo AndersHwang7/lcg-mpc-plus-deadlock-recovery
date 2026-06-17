@@ -2,7 +2,7 @@
 
 # Visualization Artifacts
 
-This directory contains curated visualization artifacts for the LCG-MPC+ multi-robot deadlock-recovery study.
+This directory contains visualization artifacts for the LCG-MPC+ multi-robot deadlock-recovery study.
 
 ## Sample Images
 
@@ -14,10 +14,10 @@ These screenshots were rendered from the actual interactive HTML viewers at mid-
 
 ## Directory Layout
 
-- `interactive_4way_html/`: self-contained HTML Canvas animations comparing four planners on the same scenario.
+- `interactive_4way_html/`: standalone HTML Canvas animations comparing four planners on the same scenario.
 - `paper_figures_1000seed/`: PNG and PDF figures generated from the completed 1000-seed paired experiment.
 - `captions/`: draft figure and table captions for manuscript integration.
-- `sample_images/`: static screenshots captured from the interactive HTML visualizations for GitHub previews.
+- `sample_images/`: static screenshots captured from the interactive HTML visualizations.
 
 ## Interactive 4-Way HTML Animations
 
@@ -43,7 +43,7 @@ Controls:
 - Checkboxes: toggle path, intent, and tail overlays
 - Optional URL query: append `?frame=50` to open a specific starting frame
 
-The animations are intended as qualitative behavior visualizations, not as replacements for the statistical 1000-seed results.
+The animations provide qualitative behavior views. Quantitative claims are based on the statistical 1000-seed results.
 
 ## Paper Figures
 
@@ -66,7 +66,7 @@ The interactive HTML suite can be regenerated with:
 python scripts/visualize_suite.py --config configs/visual_4way_5cases.yaml
 ```
 
-The paper figures are produced by the final paper-ready packaging workflow:
+The paper figures are produced by the final manuscript packaging workflow:
 
 ```bash
 python scripts/prepare_paper_ready_1000seed.py

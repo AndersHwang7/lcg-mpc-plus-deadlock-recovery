@@ -3,7 +3,7 @@ A reproducible Python research platform for the doctoral/Sci-level topic:
 
 **LCG-MPC+ multi-robot deadlock-recovery simulator and 1000-seed paired evaluation package with baseline comparisons, bootstrap-CI figures, statistical tables, and HTML visualizations.**
 
-This repository provides a complete experimental scaffold, not a one-file demo. It includes:
+This repository contains the simulator, experiment scripts, statistical analysis utilities, and visualization artifacts used for the LCG-MPC+ multi-robot deadlock-recovery study. It includes:
 
 - grid-based large-scale multi-robot simulator,
 - map generators for corridor, intersection, warehouse, bottleneck, random maps,
@@ -30,7 +30,7 @@ The completed 1000-seed paired evaluation compares LCG-MPC+ against WHCA best pr
 | --- | --- |
 | ![Throughput per step with bootstrap confidence intervals](visualizations/paper_figures_1000seed/throughput_per_step_100robots_bootstrap_ci.png) | ![4-way bottleneck swap visualization sample](visualizations/sample_images/sample_bottleneck_swap_4way.png) |
 
-The interactive HTML visualizations compare WHCA best preregistered, IMPC-DR-lite, MPC-CBF-lite, and LCG-MPC+ side by side. More samples, PDF figures, captions, and the self-contained HTML viewers are available in `visualizations/`.
+The interactive HTML visualizations compare WHCA best preregistered, IMPC-DR-lite, MPC-CBF-lite, and LCG-MPC+ side by side. Additional samples, PDF figures, captions, and standalone HTML viewers are available in `visualizations/`.
 
 ---
 
@@ -218,9 +218,9 @@ python scripts/visualize_compare.py --config configs/visual_compare.yaml
 
 The output HTML shows moving circles/squares as robots, faint route-attempt lines, raw versus safety-supervised one-step decisions, and live values such as completion, waiting, fixed conflicts, retreat actions, game profiles, and MPC checks.
 
-Curated visualization artifacts are included under `visualizations/`:
+Visualization artifacts are included under `visualizations/`:
 
-- `visualizations/interactive_4way_html/`: five self-contained four-way HTML Canvas comparisons.
+- `visualizations/interactive_4way_html/`: five standalone four-way HTML Canvas comparisons.
 - `visualizations/paper_figures_1000seed/`: paper-ready PNG/PDF figures with bootstrap confidence intervals.
 - `visualizations/captions/`: draft manuscript captions.
 
@@ -232,7 +232,7 @@ See `docs/VISUALIZATION_ARTIFACTS.md` for the English guide.
 
 ## 9. Final SCI package additions
 
-This release includes the following completion-oriented additions:
+This release includes the following additions:
 
 - `lcg_mpc_plus`: recommended final proposed planner.
 - Continuous AMR safety envelope: circular footprint, swept-volume, acceleration/speed bounds, and sensing uncertainty.
@@ -249,4 +249,4 @@ python scripts/visualize_suite.py --config configs/visual_5cases.yaml --max-fram
 python scripts/run_paper_pipeline.py --config configs/paper_fast_1000seed_core.yaml --jobs 8 --resume
 ```
 
-A compact included validation run is stored under `results/final_validation_quick`. It verifies the pipeline and produces figures/tables, but the final manuscript claim should be regenerated from a 100-seed or 1000-seed sweep. See `docs/FINAL_SCI_RELEASE_REPORT.md`.
+A compact validation run is stored under `results/final_validation_quick` for pipeline checking. Manuscript-level performance claims in this repository are based on the larger paired seed sweeps and final 1000-seed result package. See `docs/FINAL_SCI_RELEASE_REPORT.md`.

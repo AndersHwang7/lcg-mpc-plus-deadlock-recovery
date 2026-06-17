@@ -2,16 +2,16 @@
 
 # Visualization Artifacts Guide
 
-This document describes the visualization materials included in the GitHub repository and how they should be used in a paper, presentation, or reproduction package.
+This document describes the visualization materials included in the repository and their intended use in manuscripts, presentations, and reproduction packages.
 
 ## Included Materials
 
-The repository contains a curated `visualizations/` directory with three artifact groups:
+The repository contains a `visualizations/` directory with three artifact groups:
 
 | Path | Purpose |
 | --- | --- |
 | `visualizations/interactive_4way_html/` | Browser-based four-way behavior comparisons for representative traffic scenarios. |
-| `visualizations/paper_figures_1000seed/` | Publication-oriented PNG/PDF figures from the completed 1000-seed paired experiment. |
+| `visualizations/paper_figures_1000seed/` | PNG/PDF figures from the completed 1000-seed paired experiment. |
 | `visualizations/captions/` | Draft captions for figures and tables. |
 
 ## Interactive Behavior Comparisons
@@ -23,7 +23,7 @@ The HTML visualizations compare four planners under identical map, seed, robot c
 3. MPC-CBF-lite
 4. LCG-MPC+
 
-The five included cases cover ring crossing, intersection crossing, bottleneck swap, warehouse aisles, and corridor opposing-flow scenarios. These animations are useful for inspecting qualitative behavior such as local congestion, waiting patterns, safety-supervisor corrections, and recovery behavior after potential deadlock formation.
+The five included cases cover ring crossing, intersection crossing, bottleneck swap, warehouse aisles, and corridor opposing-flow scenarios. The animations show qualitative behavior such as local congestion, waiting patterns, safety-supervisor corrections, and recovery behavior after potential deadlock formation.
 
 To view them locally, open:
 
@@ -31,7 +31,7 @@ To view them locally, open:
 visualizations/interactive_4way_html/index.html
 ```
 
-No web server is required because each HTML file is self-contained.
+No web server is required; each HTML file can be opened directly in a browser.
 
 ## Paper Figure Set
 
@@ -48,11 +48,11 @@ Each metric is separated into 56-robot and 100-robot figures. Error bars represe
 
 ## Interpretation Notes
 
-The HTML animations are qualitative demonstrations. Manuscript claims should rely on the final CSV summaries, paired statistical tests, and paper figures generated from the completed 1000-seed experiment.
+The HTML animations are qualitative demonstrations. Manuscript claims are based on the final CSV summaries, paired statistical tests, and figures generated from the completed 1000-seed experiment.
 
-The `fairness_jain_wait` metric should be interpreted carefully because a high fairness score can indicate uniformly low waits or uniformly high waits. It should be read together with mean wait time, throughput, and success rate.
+The `fairness_jain_wait` metric requires joint interpretation because a high fairness score can indicate uniformly low waits or uniformly high waits. It is reported together with mean wait time, throughput, and success rate.
 
-Supervisor intervention counts indicate how often candidate planner actions required safety correction or recovery assistance. They should not be interpreted as final collision counts. The final `collision_count` metric reports residual executed collisions after supervision.
+Supervisor intervention counts indicate how often candidate planner actions required safety correction or recovery assistance. They are distinct from final collision counts. The final `collision_count` metric reports residual executed collisions after supervision.
 
 The `planner_native_conflict_reduction_rate` metric is excluded from the core manuscript interpretation because the current before/after logging path is not reliable enough for a primary result claim.
 
@@ -64,10 +64,10 @@ Regenerate the four-way HTML suite:
 python scripts/visualize_suite.py --config configs/visual_4way_5cases.yaml
 ```
 
-Regenerate paper-ready figures and captions from existing final result CSV files:
+Regenerate manuscript figures and captions from existing final result CSV files:
 
 ```bash
 python scripts/prepare_paper_ready_1000seed.py
 ```
 
-The 1000-seed experiment itself has already been completed for this package. Do not rerun the 1000-seed sweep unless a new experimental design or corrected logging pipeline is intentionally introduced.
+The included result package is based on the completed 1000-seed experiment. A new 1000-seed sweep is only needed when changing the experimental design, implementation, or logging pipeline.
