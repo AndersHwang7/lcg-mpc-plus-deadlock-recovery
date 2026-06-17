@@ -34,6 +34,24 @@ The interactive HTML visualizations compare WHCA best preregistered, IMPC-DR-lit
 
 ---
 
+## Reference Test Machine
+
+The completed 1000-seed result package was prepared on the following local workstation. These specifications are provided for runtime and reproducibility context; exact wall-clock time can vary with thermal limits, background processes, storage speed, and the selected `--jobs` value.
+
+| Component | Specification |
+| --- | --- |
+| CPU | 12th Gen Intel(R) Core(TM) i7-1260P |
+| CPU cores / logical processors | 12 cores / 16 logical processors |
+| Installed memory | 32 GB RAM |
+| Operating system | Microsoft Windows 11 Home, 64-bit, build 22631 |
+| Python | 3.11.9 |
+| Git | 2.37.3.windows.1 |
+| GitHub CLI | 2.93.0 |
+
+The large resumable runs were executed from PowerShell using the project scripts with multiprocessing enabled. For other machines, start with a conservative `--jobs` value and increase it only after checking CPU temperature, memory pressure, and per-step runtime stability.
+
+---
+
 ## 1. Recommended environment
 
 ### Windows recommendation
