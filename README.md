@@ -18,13 +18,19 @@ This repository provides a complete experimental scaffold, not a one-file demo. 
 
 The implementation is intentionally lightweight so that 100--1000 robot experiments can be run without ROS2/Gazebo.
 
-## Visualization Preview
+## Performance And Visualization Snapshot
 
-The repository includes self-contained HTML Canvas visualizations that compare WHCA best preregistered, IMPC-DR-lite, MPC-CBF-lite, and LCG-MPC+ on identical scenarios.
+The completed 1000-seed paired evaluation compares LCG-MPC+ against WHCA best preregistered, IMPC-DR-lite, and MPC-CBF-lite under identical maps, seeds, robot counts, and start-goal assignments. Error bars in the paper figures indicate bootstrap 95% confidence intervals.
 
-![4-way bottleneck swap visualization sample](visualizations/sample_images/sample_bottleneck_swap_4way.png)
+| Success rate, 100 robots | Mean wait time, 100 robots |
+| --- | --- |
+| ![Success rate with bootstrap confidence intervals](visualizations/paper_figures_1000seed/success_rate_100robots_bootstrap_ci.png) | ![Mean wait time with bootstrap confidence intervals](visualizations/paper_figures_1000seed/mean_wait_time_100robots_bootstrap_ci.png) |
 
-More samples and the interactive HTML files are available in `visualizations/`.
+| Throughput, 100 robots | Interactive 4-way behavior sample |
+| --- | --- |
+| ![Throughput per step with bootstrap confidence intervals](visualizations/paper_figures_1000seed/throughput_per_step_100robots_bootstrap_ci.png) | ![4-way bottleneck swap visualization sample](visualizations/sample_images/sample_bottleneck_swap_4way.png) |
+
+The interactive HTML visualizations compare WHCA best preregistered, IMPC-DR-lite, MPC-CBF-lite, and LCG-MPC+ side by side. More samples, PDF figures, captions, and the self-contained HTML viewers are available in `visualizations/`.
 
 ---
 
